@@ -170,7 +170,7 @@ ob_start();
  </html>
  <?php
  // Set File Name for File to be saved
- $file_name = $_POST['college_name']
+ $file_name = $_POST['college_name'];
 
  // Put Contents in HTML File and save it
  file_put_contents( $file_name , ob_get_contents());
