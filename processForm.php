@@ -1,10 +1,8 @@
 <?php
 $form_data = $_POST;
-// print_r($_POST);
 
-// Start the buffering //
+// Start buffering for HTML DOM
 ob_start();
-
 
 ?>
  <html>
@@ -16,24 +14,26 @@ ob_start();
    <button class="btn btn-medium primary"onclick="myFunction()">Print Form</button>
  	<div style="padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 30px;">
  		<div style="text-align: center;">
- 			<h2>18th Ajay kumar Garg Memorial Open Table Tennis Tournament</h2>
- 			<h3>Entry Form</h3>
+ 			<h2>18th AJAY KUMAR GARG MEMORIAL OPEN TABLE TENNIS TOURNAMENT</h2>
+ 			<h3>ENTRY FORM</h3>
  		</div>
  		<!-- Top Left Line -->
  		<div style="width: 30%; float: left;">
  			<ul style="list-style-type: none;">
- 				<li>Name of Institute </li>
- 				<li>Address </li>
+ 				<li>NAME OF INSTITUTE</li>
+ 				<li>ADDRESS</li>
  			</ul>
  		</div>
  		<div style="width: 70%; float: left;">
  			<ul style="list-style: none;">
+
  				<li>: <?php echo $form_data['college_name']; ?></li>
  				<li>:  <?php echo $form_data['college_address']; ?></li>
+
  			</ul>
  		</div>
  		<div style="text-align: center;">
- 			<h3>TEAM MEMBER Team Championship</h3>
+ 			<h3>TEAM MEMBERS (Team Championship)</h3>
  		<div style="width: 50%; float: left;">
  			<h4 style="text-align: center;">MEN (TEAM A)</h4>
  			<ul style="list-style: none;">
@@ -50,7 +50,6 @@ ob_start();
           }
         }
         ?>
-
 
  			</ul>
 
@@ -80,6 +79,7 @@ ob_start();
  		<div style="width: 50%; float: left; padding-top: 10px;">
  			<h4 style="text-align: center;">MEN (TEAM B)</h4>
  			<ul style="list-style: none;">
+
         <!-- Display all Men Team B -->
         <?php
         $counter = 1;
@@ -99,6 +99,7 @@ ob_start();
  		<div style="width: 50%; float: left; padding-top: 10px;">
  			<h4 style="text-align: center;">WOMEN (TEAM B)</h4>
  			<ul style="list-style: none;">
+
         <!-- Display all Women Team B -->
         <?php
         $counter = 1;
@@ -127,6 +128,7 @@ ob_start();
  				<th style="width: 25%; border: 2px solid #000; ">Date of Birth</th>
  			</tr>
  			<tr id="row1" style="font-weight: 12px;">
+
         <!-- Display all Individual Teams -->
         <?php
         $counter = 1;
@@ -157,13 +159,19 @@ ob_start();
     </div>
  	</div>
   <script>
-  function myFunction() {
+
+  //Handles Print Button
+  function myFunction()
+  {
       window.print();
   }
   </script>
  </body>
  </html>
  <?php
- echo '1';
- file_put_contents('form.html', ob_get_contents());
+ // Set File Name for File to be saved
+ $file_name = $_POST['college_name']
+
+ // Put Contents in HTML File and save it
+ file_put_contents( $file_name , ob_get_contents());
  ?>
